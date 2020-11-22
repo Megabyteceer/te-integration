@@ -9,6 +9,7 @@ function activate(context) {
 	server = http.createServer(function (req, res) {
 
 		let params = decodeURIComponent(req.url.replace('/', '')).split('&');
+		res.setHeader('Access-Control-Allow-Origin', '*');
 		switch(params[0]) {
 			case 'classes-reloaded':
 				let projectBreakpoints = vscode.debug.breakpoints.filter((b) => {
